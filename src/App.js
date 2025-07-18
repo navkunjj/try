@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
-import './App.css';
-import Navbar from './Components/Navbar';
-import Textform from './Components/Textform';
-import Alert from './Components/Alert';
+import React, { useState } from "react";
+import "./App.css";
+import Navbar from "./Components/Navbar";
+import Textform from "./Components/Textform";
+import Alert from "./Components/Alert";
+import About from "./Components/About";
+
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("white");
@@ -30,11 +33,19 @@ function App() {
   };
 
   return (
-    <>
-      <Navbar name="Text Lab" mode={mode} toggleMode={toggleMode} />
-      <Alert alert={alert} />
-      <Textform showAlert={showAlert}/>
-    </>
+    
+      <Router>
+        <Navbar name="Text Lab" mode={mode} toggleMode={toggleMode} />
+        <Alert alert={alert} />
+        <div className="container my-3">
+        <Routes>
+  <Route path="/" element={<Textform showAlert={showAlert} mode={mode} />} />
+  <Route path="/about" element={<About mode={mode} />} />
+</Routes>
+
+        </div>
+      </Router>
+    
   );
 }
 
