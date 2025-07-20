@@ -6,7 +6,7 @@ function About(props) {
       <div className="accordion-item">
         <h2 className="accordion-header">
           <button
-            className={`accordion-button ${props.mode === "dark" ? "text-white bg-dark" : "text-dark bg-light"}`}
+            className={`accordion-button collapsed ${props.mode === "dark" ? "text-white bg-dark" : "text-dark bg-light"}`}
 
             type="button"
             data-bs-toggle="collapse"
